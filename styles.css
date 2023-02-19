@@ -1,0 +1,66 @@
+body {
+    background-color: black;
+    margin: 0px;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.box-holder, .box {
+    aspect-ratio: 5 / 7;
+    width: 30vmin;
+}
+
+.box-holder {
+    position: absolute;
+    transition: transform 400ms ease;
+}
+
+.box {
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    transition: transform 400ms ease;
+}
+
+.box:nth-child(1) {
+    transform: translate(-10%, -10%) rotate(-3deg);
+}
+
+.box:nth-child(2) {
+    transform: translate(10%, -10%) rotate(1deg);
+}
+
+.box:nth-child(3) {
+    transform: translate(25%, -10%) rotate(4deg);
+}
+
+.box:nth-child(4) {
+    transform: translate(40%, -10%) rotate(5deg);
+}
+
+.box:nth-child(5) {
+    transform: translate(55%, -10%) rotate(6deg);
+}
+
+.box:hover {
+    transform: scale(1.1);
+    border: 1px solid black;
+    box-shadow: 0 0 13px white;
+}
+
+.box-holder:hover {
+    transform: scale(1.1), translateZ(20px);
+    transition-delay: 200ms;
+}
+
+.box-holder:hover ~ .box {
+    transform: scale(0.9);
+}
+
+.box:hover ~ .box {
+    opacity: 0.1;
+    transition-timing-function:cubic-bezier(0.6, 0.04, 0.98, 0.335);
+    transform: translateZ(-30px);
+}
